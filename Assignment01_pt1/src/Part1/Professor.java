@@ -2,7 +2,7 @@ package Part1;
 
 public class Professor { 
 	
-	private enum SCORE // 과제 점수
+	public enum SCORE // 과제 점수
 	{ 
 		AA, A, A0, B, B0, C, C0, D, D0, F
 	}
