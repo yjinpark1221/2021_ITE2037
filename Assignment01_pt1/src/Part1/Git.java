@@ -10,8 +10,8 @@ public class Git {
 	public Git() // 선언된 repository 배열 원소에 GradeNode 객체를 생성하는 생성자 
 	{
 		repository = new GradeNode[assignmentNum][studentNum];
-		for (int i = 0; i < repository.length; ++i) {
-			for (int j = 0; j < repository[i].length; ++j) {
+		for (int i = 0; i < assignmentNum; ++i) {
+			for (int j = 0; j < studentNum; ++j) {
 				repository[i][j] = new GradeNode();
 			}
 		}
@@ -34,24 +34,21 @@ public class Git {
 		String question[] = { "1 + 1 = ?", "What is Velocity?", "What is this?" };
 		String subject[] = { "Mathematics", "Physics", "Philosophy" };
 		String solution[][] = {{ "1" , "Speed", "Computer" } , { "2" , "m/s" , "Apple" }, { "3", "I have no idea", "Iphone" }, { "4", "Running", "Nothing" }};
-		
+
 		student[0] = new Student("Kevin", 2021104233);
 		student[1] = new Student("Judy", 2002548215);
 		student[2] = new Student("Charlie", 1997487865);
 		student[3] = new Student("Puth", 15048655);
 		
-		for (int i = 0; i < repository.length; ++i) 
-		{
-			assignment[i] = professor.makeAssignment(subject[i], question[i]);
-
-			for (int j = 0; j < repository[i].length; ++j) 
-			{
+		for (int i = 0; i < studentNum; ++i) {
+			for (int j = 0; j < assignmentNum; ++j) {
+				assignment[j] = professor.makeAssignment(subject[j], question[j]);
 				/* makeAssignment 메소드 호출로 생성한 Assignment 객체를 assignment 배열에 삽입 */
-				answer[i][j] = student[j].makeAnswer(assignment[i], solution[j][i]);
+				answer[j][i] = student[j].makeAnswer(assignment[j], solution[i][j]);
 				/* makeAnswer 메소드 호출로 생성한 Answer 객체를 answer 배열에 삽입 */
-				score[i][j] = professor.grading(assignment[i], answer[i][j]);
+				score[j][i] = professor.grading(assignment[j], answer[j][i]);
 				/* grading 메소드 호출로 저장한 solution 문자열을 score 배열에 삽입 */
-				repository[i][j] = git.pushGradeNode(assignment[i], answer[i][j], score[i][j]);
+				repository[j][i] = git.pushGradeNode(assignment[j], answer[j][i], score[j][i]);
 				/* pushGradeNode 메소드 호출로 생성한 GradeNode 객체를 repository 2차원 배열에 삽입 */
 			}
 		}

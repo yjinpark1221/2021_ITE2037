@@ -42,16 +42,14 @@ public class Git {
 		student[2] = new Student("Charlie", 1997487865);
 		student[3] = new Student("Puth", 15048655);
 		
-		for (int i = 0; i < studentNum; ++i) 
-		{
+		for (int i = 0; i < studentNum; ++i) {
 			System.out.println(student[i].toString()); // 학생의 정보 출력
 			System.out.println("============================================");
 			
 			/* 학생 수만큼 원소를 가지는 gradeList 객체 배열 생성 */
 			gradeList[i] = new GradeList();
 			
-			for (int j = 0; j < assignmentNum; ++j) 
-			{
+			for (int j = 0; j < assignmentNum; ++j) {
 				assignment[j] = professor.makeAssignment(subject[j], question[j]);
 				/* (Part1) makeAssignment 메소드 호출로 생성한 Assignment 객체를 assignment 배열에 삽입 */
 				answer[j][i] = student[i].makeAnswer(assignment[j], solution[i][j]);

@@ -31,7 +31,7 @@ public class Answer {
 	
 	public String toString() // solution의 값을 출력하는 toString() 메소드를 오버라이딩
 	{ 
-		return "Solution: " + solution + "\n";
+		return "Solution: " + solution;
 	}
 	
 }

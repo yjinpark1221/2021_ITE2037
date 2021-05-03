@@ -44,7 +44,7 @@ public class Assignment {
 	
 	public String toString() // subject, question의 값을 출력하는 toString() 메소드를 오버라이딩
 	{
-		return "Subject: " + subject + ", Question: " + question + "\n";
+		return "Subject: " + subject + ", Question: " + question;
 	}
 	
 }

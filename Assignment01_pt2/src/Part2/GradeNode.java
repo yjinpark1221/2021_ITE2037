@@ -17,8 +17,8 @@ public class GradeNode {
 
 	public GradeNode(Assignment assignment, Answer answer, String score) // nextNode를 제외한 모든 변수를 인자로 받은 값으로 생성하는 생성자 (단, 인자로 객체를 받으면 각 객체의 모든 변수를 전달)
 	{ 
-		this.assignment = assignment;
-		this.answer = answer;
+		this.assignment = new Assignment(assignment.getSubject(), assignment.getQuestion());
+		this.answer = new Answer(answer.getSolution());
 		this.score = score;
 		nextNode = null;
 	}
@@ -40,6 +40,6 @@ public class GradeNode {
 	
 	public String toString() // nextNode를 제외한 모든 변수의 값을 출력하는 toString() 메소드를 오버라이딩 (변수가 객체일 경우 해당 객체의 toString() 메소드 호출)
 	{
-		return assignment.toString() + answer.toString() + "Grade: " + score;
+		return assignment.toString() + "\n" + answer.toString() + "\nGrade: " + score;
 	}
 }
